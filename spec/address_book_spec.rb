@@ -105,32 +105,32 @@ RSpec.describe AddressBook do
 			expect(entry).to be_nil
 		end
 
-		it "searches AddressBook for Bill" do
-			entry = book.binary_search("Bill")
+		it "searches AddressBook for Gary" do
+			entry = book.binary_search("Gary")
 			expect(entry).to be_a Entry
 		end
-		it "searches AddressBook for Bob" do
-			entry = book.binary_search("Bob")
-			expect(entry).to be_a Entry
-		end
-
-		it "searches AddressBook for Joe" do
-			entry = book.binary_search("Joe")
+		it "searches AddressBook for Philip" do
+			entry = book.binary_search("Philip")
 			expect(entry).to be_a Entry
 		end
 
-		it "searches AddressBook for Sally" do
-			entry = book.binary_search("Sally")
+		it "searches AddressBook for Arun" do
+			entry = book.binary_search("Arun")
 			expect(entry).to be_a Entry
 		end
 
-		it "searches AddressBook for Sussie" do
-			entry = book.binary_search("Sussie")
+		it "searches AddressBook for Mike" do
+			entry = book.binary_search("Mike")
 			expect(entry).to be_a Entry
 		end
 
-		it "searches AddressBook for Billy" do
-       entry = book.binary_search("Billy")
+		it "searches AddressBook for Sharon" do
+			entry = book.binary_search("Sharon")
+			expect(entry).to be_a Entry
+		end
+
+		it "searches AddressBook for Jack" do
+       entry = book.binary_search("Jack")
        expect(entry).to be_nil
     end
 	end
