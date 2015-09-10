@@ -20,6 +20,10 @@ class AddressBook
 
 		@entries.insert(index, Entry.new(name, phone, email))
 	end
+# For removing the record from addressbook
+	def remove_entry(name, phone, email)
+  	@entries.delete_if {|entry| (entry.name == name && entry.phone == phone && entry.email == email)}
+	end
 
 	def import_from_csv(file_name)
 		csv_text = File.read(file_name)

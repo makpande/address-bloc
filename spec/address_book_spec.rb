@@ -39,7 +39,7 @@ RSpec.describe AddressBook do
 			expect(new_entry.phone_number).to eq '010.012.1815'
 			expect(new_entry.email).to eq 'augusta.king@lovelace.com'
 		end
-	end
+end
 	context ".import_from_csv" do
 
 		before do
@@ -56,39 +56,33 @@ RSpec.describe AddressBook do
 
 		it "imports the 1st entry" do
 			# book.import_from_csv("entries.csv")
-
 			entry_one = book.entries[0]
-
-			puts "#{entry_one.name}"
-			check_entry(entry_one, "Bob", "555-555-5415", "bob@blocmail.com")
+			check_entry(entry_one, "Bill", "555-555-5415", "bill@blocmail.com")
 		end
+
 		it "imports the 2nd entry" do
 			# book.import_from_csv("entries.csv")
-
 			entry_two = book.entries[1]
-			puts "#{entry_one.name}"
-			check_entry(entry_two, "Philip", "555-555-5415", "Philip@gmailmail.com")
+			check_entry(entry_two, "Bob", "555-555-4854", "bob@blocmail.com")
 		end
 
 		it "imports the 3rd entry" do
 			# book.import_from_csv("entries.csv")
-
 			entry_three = book.entries[2]
-			check_entry(entry_three, "Arun", "555-555-3660", "Arun@blocmail.com")
+			check_entry(entry_three, "Joe", "555-555-3660", "joe@blocmail.com")
 		end
 
 		it "imports the 4th entry" do
 			# book.import_from_csv("entries.csv")
-
 			entry_four = book.entries[3]
-			check_entry(entry_four, "Mike", "555-555-4646", "Mike@blocmail.com")
+			check_entry(entry_four, "Sally", "555-555-4646", "sally@blocmail.com")
 		end
 
 		it "imports the 5th entry" do
 			# book.import_from_csv("entries.csv")
 
 			entry_five = book.entries[4]
-			check_entry(entry_five, "Sharon", "555-555-2036", "Sharon@blocmail.com")
+			check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
 		end
 
 	end
@@ -108,27 +102,27 @@ RSpec.describe AddressBook do
 			expect(entry).to be_nil
 		end
 
-		it "searches AddressBook for Gary" do
-			entry = book.binary_search("Gary")
+		it "searches AddressBook for Bill" do
+			entry = book.binary_search("Bill")
 			expect(entry).to be_a Entry
 		end
-		it "searches AddressBook for Philip" do
-			entry = book.binary_search("Philip")
-			expect(entry).to be_a Entry
-		end
-
-		it "searches AddressBook for Arun" do
-			entry = book.binary_search("Arun")
+		it "searches AddressBook for Bob" do
+			entry = book.binary_search("Bob")
 			expect(entry).to be_a Entry
 		end
 
-		it "searches AddressBook for Mike" do
-			entry = book.binary_search("Mike")
+		it "searches AddressBook for Joe" do
+			entry = book.binary_search("Joe")
 			expect(entry).to be_a Entry
 		end
 
-		it "searches AddressBook for Sharon" do
-			entry = book.binary_search("Sharon")
+		it "searches AddressBook for Sally" do
+			entry = book.binary_search("Sally")
+			expect(entry).to be_a Entry
+		end
+
+		it "searches AddressBook for Sussie" do
+			entry = book.binary_search("Sussie")
 			expect(entry).to be_a Entry
 		end
 
