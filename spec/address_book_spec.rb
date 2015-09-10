@@ -43,7 +43,7 @@ RSpec.describe AddressBook do
 	context ".import_from_csv" do
 
 		before do
-			book.import_from_csv("spec/entries.csv")
+			book.import_from_csv("entries.csv")
 		end
 		it "imports the correct number of entries" do
 
@@ -98,7 +98,7 @@ RSpec.describe AddressBook do
 
 	context "#binary_search" do
 		before do
-			book.import_from_csv("spec/entries.csv")
+			book.import_from_csv("entries.csv")
 		end
 		it "searches AddressBook for a non-existent entry" do
 			entry = book.binary_search("Mack")
