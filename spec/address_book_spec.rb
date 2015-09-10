@@ -59,12 +59,14 @@ RSpec.describe AddressBook do
 
 			entry_one = book.entries[0]
 
-			check_entry(entry_one, "Gary", "555-555-4854", "Gary@gmailmail.com")
+			puts "#{entry_one.name}"
+			check_entry(entry_one, "Bob", "555-555-5415", "bob@blocmail.com")
 		end
 		it "imports the 2nd entry" do
 			# book.import_from_csv("entries.csv")
 
 			entry_two = book.entries[1]
+			puts "#{entry_one.name}"
 			check_entry(entry_two, "Philip", "555-555-5415", "Philip@gmailmail.com")
 		end
 
@@ -90,6 +92,7 @@ RSpec.describe AddressBook do
 		end
 
 	end
+
 	def check_entry(entry, expected_name, expected_number, expected_email)
 		expect(entry.name).to eql expected_name
 		expect(entry.phone_number).to eql expected_number
