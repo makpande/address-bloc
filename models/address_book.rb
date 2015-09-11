@@ -12,9 +12,9 @@ class AddressBook
 		index = 0
 		@entries.each do |entry|
 
-			if name < entry.name
-				break
-			end
+		if name < entry.name
+			break
+		end
 			index += 1
 		end
 
@@ -40,6 +40,7 @@ class AddressBook
 			add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
 		end
 	end
+
 	def binary_search(name)
 		lower = 0
 		upper = entries.length - 1
@@ -57,6 +58,6 @@ class AddressBook
 				lower = mid + 1
 			end
 		end
-		return nil
+			return nil
 	end
 end
