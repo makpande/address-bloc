@@ -46,16 +46,26 @@ RSpec.describe AddressBook do
 
 # checking Remove entries
 
-	context ".remove_entry" do
+	context "remove_entry" do
 		it "deletes one entry of the address book" do
-			#book = AddressBook.new
+			book = AddressBook.new
 			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
 			book.remove_entry('Ada Lovelace', '010.012.1815','augusta.king@lovelace.com')
 			expect(book.entries.size).to eq(0)
 		end
-
-		
 	end
+
+	context "demolish_entries" do
+		it "Deletes all the entries of address_book" do
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+			book.demolish_entries
+			expect(book.entries.size).to eq(0)
+		end
+	end
+
 #Importing text file
 	context "import_from_csv" do
 

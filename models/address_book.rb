@@ -25,6 +25,10 @@ class AddressBook
   	@entries.delete_if {|entry| entry.name == name && entry.phone_number == phone_number && entry.email == email}
 	end
 
+# Demolish all entries
+	def demolish_entries
+		@entries = []
+	end
 
 # Importing Data from text File
 	def import_from_csv(file_name)
