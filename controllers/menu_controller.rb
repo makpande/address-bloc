@@ -145,7 +145,15 @@ require_relative "../models/address_book.rb"
    def view_number
     system "clear"
     puts "Select entry number"
-      @address_book.entries
+    num_selected  = gets.chomp.to_i
+    if num_selected < @address_book.entries.count
+      puts @address_book.entries[num_selected]
+      puts "Return to main menu"
+      system "clear"
+    else
+      puts "#{num_selected} is not a valid selection"
+      main_menu
+    end
    end
 
    def entry_submenu(entry)
