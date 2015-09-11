@@ -54,19 +54,19 @@ require_relative "../models/address_book.rb"
    end
 
 
-   def view_all_entries
-     @address_book.entries.each do |entry|
-     system "clear"
-     puts entry.to_s
+  def view_all_entries
+    @address_book.entries.each do |entry|
+    system "clear"
+    puts entry.to_s
 
-       entry_submenu(entry)
-     end
+    entry_submenu(entry)
+  end
 
-     system "clear"
-     puts "End of entries"
-   end
+    system "clear"
+    puts "End of entries"
+  end
 
-   def create_entry
+  def create_entry
     puts "New AddressBloc Entry"
 
     print "Name: "
@@ -80,19 +80,19 @@ require_relative "../models/address_book.rb"
 
     system "clear"
     puts "New entry created"
-   end
+  end
 
-   def search_entries
+  def search_entries
 
      print "Search by name: "
      name = gets.chomp
 
      match = @address_book.binary_search(name)
-     system "clear"
 
      if match
        puts match.to_s
-       search_submenu(match)
+       puts "Wow!! you found match for #{name}"
+       main_menu
      else
        puts "No match found for #{name}"
      end
@@ -145,7 +145,7 @@ require_relative "../models/address_book.rb"
    def view_number
     system "clear"
     puts "Select entry number"
-      @address_book.entries
+    @address_book.entries
    end
 
    def entry_submenu(entry)

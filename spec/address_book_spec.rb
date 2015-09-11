@@ -24,6 +24,9 @@ RSpec.describe AddressBook do
 			expect(book.entries.size).to eq 0
 		end
 	end
+
+#Adding entries to address book
+
 	context "#add_entry" do
 		it "adds only one entry to the address book" do
 			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
@@ -40,7 +43,21 @@ RSpec.describe AddressBook do
 			expect(new_entry.email).to eq 'augusta.king@lovelace.com'
 		end
 	end
-	context ".import_from_csv" do
+
+# checking Remove entries
+
+	context ".remove_entry" do
+		it "deletes one entry of the address book" do
+			#book = AddressBook.new
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+			book.remove_entry('Ada Lovelace', '010.012.1815','augusta.king@lovelace.com')
+			expect(book.entries.size).to eq(0)
+		end
+
+		
+	end
+#Importing text file
+	context "import_from_csv" do
 
 		before do
 			book.import_from_csv("entries.csv")
@@ -58,37 +75,33 @@ RSpec.describe AddressBook do
 			# book.import_from_csv("entries.csv")
 
 			entry_one = book.entries[0]
-
-			puts "#{entry_one.name}"
-			check_entry(entry_one, "Bob", "555-555-5415", "bob@blocmail.com")
+			check_entry(entry_one, "Bill", "555-555-4854", "bill@blocmail.com")
 		end
 		it "imports the 2nd entry" do
-			# book.import_from_csv("entries.csv")
 
 			entry_two = book.entries[1]
-			puts "#{entry_one.name}"
-			check_entry(entry_two, "Philip", "555-555-5415", "Philip@gmailmail.com")
+			check_entry(entry_two, "Bob", "555-555-5415", "bob@blocmail.com")
 		end
 
 		it "imports the 3rd entry" do
 			# book.import_from_csv("entries.csv")
 
 			entry_three = book.entries[2]
-			check_entry(entry_three, "Arun", "555-555-3660", "Arun@blocmail.com")
+			check_entry(entry_three, "Joe", "555-555-3660", "joe@blocmail.com")
 		end
 
 		it "imports the 4th entry" do
 			# book.import_from_csv("entries.csv")
 
 			entry_four = book.entries[3]
-			check_entry(entry_four, "Mike", "555-555-4646", "Mike@blocmail.com")
+			check_entry(entry_four, "Sally", "555-555-4646", "sally@blocmail.com")
 		end
 
 		it "imports the 5th entry" do
 			# book.import_from_csv("entries.csv")
 
 			entry_five = book.entries[4]
-			check_entry(entry_five, "Sharon", "555-555-2036", "Sharon@blocmail.com")
+			check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
 		end
 
 	end
@@ -104,31 +117,31 @@ RSpec.describe AddressBook do
 			book.import_from_csv("entries.csv")
 		end
 		it "searches AddressBook for a non-existent entry" do
-			entry = book.binary_search("Mack")
+			entry = book.binary_search("Jack")
 			expect(entry).to be_nil
 		end
 
-		it "searches AddressBook for Gary" do
-			entry = book.binary_search("Gary")
+		it "searches AddressBook for Bill" do
+			entry = book.binary_search("Bill")
 			expect(entry).to be_a Entry
 		end
-		it "searches AddressBook for Philip" do
-			entry = book.binary_search("Philip")
-			expect(entry).to be_a Entry
-		end
-
-		it "searches AddressBook for Arun" do
-			entry = book.binary_search("Arun")
+		it "searches AddressBook for Bob" do
+			entry = book.binary_search("Bob")
 			expect(entry).to be_a Entry
 		end
 
-		it "searches AddressBook for Mike" do
-			entry = book.binary_search("Mike")
+		it "searches AddressBook for Joe" do
+			entry = book.binary_search("Joe")
 			expect(entry).to be_a Entry
 		end
 
-		it "searches AddressBook for Sharon" do
-			entry = book.binary_search("Sharon")
+		it "searches AddressBook for Sally" do
+			entry = book.binary_search("Sally")
+			expect(entry).to be_a Entry
+		end
+
+		it "searches AddressBook for Sussie" do
+			entry = book.binary_search("Sussie")
 			expect(entry).to be_a Entry
 		end
 

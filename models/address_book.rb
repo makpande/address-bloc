@@ -7,7 +7,7 @@ class AddressBook
 	def initialize
 		@entries = []
 	end
-
+# Adding entry to address book
 	def add_entry(name, phone, email)
 		index = 0
 		@entries.each do |entry|
@@ -20,7 +20,13 @@ class AddressBook
 
 		@entries.insert(index, Entry.new(name, phone, email))
 	end
+# Removing entry from address book
+	def remove_entry(name, phone_number, email)
+  	@entries.delete_if {|entry| entry.name == name && entry.phone_number == phone_number && entry.email == email}
+	end
 
+
+# Importing Data from text File
 	def import_from_csv(file_name)
 		csv_text = File.read(file_name)
 		csv = CSV.parse(csv_text, headers: true, skip_blanks: true)
