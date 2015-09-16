@@ -141,11 +141,11 @@ class MenuController
       puts entry
     end
 
-    def view_number(num)
+    def view_number
       system "clear"
       puts "Select entry number"
-      num = gets.chomp
-      @address_book.entries(num)
+      num = gets.chomp.to_i
+      puts @address_book.entries[num]
     end
 
     def entry_submenu(entry)
