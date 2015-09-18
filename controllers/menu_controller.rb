@@ -59,12 +59,13 @@ class MenuController
 
 
     def view_all_entries
+    # Iterate through all entries in AddressBook using each
       @address_book.entries.each do |entry|
         system "clear"
         puts entry.to_s
+      # Call entry_submenu to display a submenu for each entry
         entry_submenu(entry)
       end
-
       system "clear"
       puts "End of entries"
     end
@@ -145,7 +146,14 @@ class MenuController
       system "clear"
       puts "Select entry number"
       num = gets.chomp.to_i
-      puts @address_book.entries[num]
+      num -= 1
+      if num < @address_book.entries.count
+        puts @address_book.entries[num]
+        gets.chomp
+      else
+        puts "#{num} is not valid "
+        main_menu
+      end
     end
 
     def entry_submenu(entry)
@@ -169,7 +177,7 @@ class MenuController
      else
        system "clear"
        puts "#{selection} is not a valid input"
-       entries_submenu(entry)
+       main_menu
      end
    end
  end

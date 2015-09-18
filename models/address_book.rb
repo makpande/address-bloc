@@ -30,6 +30,17 @@ class AddressBook
 		@entries = []
 	end
 
+#Iterative Search by name
+	def iterative_search(name)
+		@entries.each do |entry|
+			if entry.name == name
+				return entry
+			end
+		end
+		return nil
+	end
+
+
 # Importing Data from text File
 	def import_from_csv(file_name)
 		csv_text = File.read(file_name)

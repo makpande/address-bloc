@@ -161,6 +161,49 @@ end
 		expect(entry.email).to eql expected_email
 	end
 
+	# Search for iterative_search
+
+	context "#iterative_search" do
+		before do
+			book.import_from_csv("entries.csv")
+		end
+
+		it "searches AddressBook for a non-existent entry" do
+			entry = book.binary_search("Jack")
+			expect(entry).to be_nil
+		end
+
+		it "searches AddressBook for Bill" do
+			entry = book.iterative_search("Bill")
+			expect(entry).to be_a Entry
+		end
+		it "searches AddressBook for Bob" do
+			entry = book.iterative_search("Bob")
+			expect(entry).to be_a Entry
+		end
+
+		it "searches AddressBook for Joe" do
+			entry = book.iterative_search("Joe")
+			expect(entry).to be_a Entry
+		end
+
+		it "searches AddressBook for Sally" do
+			entry = book.iterative_search("Sally")
+			expect(entry).to be_a Entry
+		end
+
+		it "searches AddressBook for Sussie" do
+			entry = book.iterative_search("Sussie")
+			expect(entry).to be_a Entry
+		end
+
+		it "searches AddressBook for Jack" do
+       entry = book.binary_search("Jack")
+       expect(entry).to be_nil
+    end
+	end
+
+	# For binary_search
 	context "#binary_search" do
 		before do
 			book.import_from_csv("entries.csv")
